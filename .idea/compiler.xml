@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="chen_all" />
+        <module name="consumer_movie" />
         <module name="provider-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="chen_all" target="1.5" />
+      <module name="consumer_movie" target="1.8" />
       <module name="provider-user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
