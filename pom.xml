@@ -7,11 +7,11 @@
     <groupId>com.yuanliang.chen</groupId>
     <artifactId>chen_all</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>provider-user</module>
         <module>consumer_movie</module>
-        <module>discovery-eureka</module>
         <module>discovery-eureka002</module>
     </modules>
 
