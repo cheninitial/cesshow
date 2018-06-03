@@ -1,19 +1,23 @@
 package cn.dcminfc.ces.domain;
 
-import javax.persistence.Entity;
+import com.hand.hap.cloud.mybatis.annotation.ModifyAudit;
+import com.hand.hap.cloud.mybatis.annotation.VersionAudit;
+import com.hand.hap.cloud.mybatis.domain.AuditDomain;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table
-public class User {
+@ModifyAudit
+@VersionAudit
+@Table(name = "t_user")
+public class User extends AuditDomain {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
     private String picUrl;
-    private String creatTime;
+    private String createTime;
 
     public User() {
     }
@@ -47,11 +51,11 @@ public class User {
         this.picUrl = picUrl;
     }
 
-    public String getCreatTime() {
-        return creatTime;
+    public String getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatTime(String creatTime) {
-        this.creatTime = creatTime;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 }

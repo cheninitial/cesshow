@@ -7,6 +7,7 @@ import cn.dcminfc.ces.pojo.UserRspBody;
 import cn.dcminfc.ces.service.UserService;
 import cn.dcminfc.ces.util.CheckReqBody;
 import cn.dcminfc.ces.util.ConstantResult;
+import cn.dcminfc.ces.util.Time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,10 +31,11 @@ public class UserServiceImpl implements UserService{
     }
 
     private Boolean parsUser(UserReqBody userReqBody) {
-        User userInde = new User(userReqBody.getName(),userReqBody.getPicUrl());
-        User user = userMapper.selectOne(userInde);
+        User userIndex = new User(userReqBody.getName(),userReqBody.getPicUrl());
+        User user = userMapper.selectOne(userIndex);
         if (user == null) {
-            int result = userMapper.insert(user);
+            userIndex.setCreateTime(Time.getTime(Time.TYPE_YMDHMS));
+            int result = userMapper.insert(userIndex);
             return result != 0;
         } else {
             int result = userMapper.updateByPrimaryKey(user);
