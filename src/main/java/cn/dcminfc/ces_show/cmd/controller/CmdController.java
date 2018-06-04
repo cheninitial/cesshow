@@ -27,7 +27,7 @@ public class CmdController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity<ReturnData> userControl(@Param("deviceId") String deviceId) throws HapException {
+    public ResponseEntity<String> userControl(@Param("deviceId") String deviceId) throws HapException {
         return Optional.ofNullable(cmdService.getCmd(deviceId))
                 .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
                 .orElseThrow(() -> new HapException("error.id.notFound"));

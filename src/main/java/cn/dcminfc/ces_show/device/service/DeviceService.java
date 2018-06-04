@@ -7,4 +7,5 @@ public interface DeviceService {
 
     Boolean isHas(String deviceId);
 
+    String status(int status);
 }

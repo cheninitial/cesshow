@@ -57,4 +57,16 @@ public class DeviceServiceImpl implements DeviceService {
             return true;
         }
     }
+
+    @Override
+    public String status(int status) {
+        DeviceDomain deviceDomain = deviceMapper.selectOneByDeviceId(Constant.DEVICE_DEFAULT);
+        if (deviceDomain == null) {
+            return "false";
+        }
+
+        deviceDomain.setStatus(status);
+        deviceMapper.updateByPrimaryKey(deviceDomain);
+        return "true";
+    }
 }

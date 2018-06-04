@@ -7,5 +7,5 @@ public interface CmdService {
 
     ReturnData putCmd(CmdDomain cmdDomain);
 
-    ReturnData getCmd(String deviceId);
+    String getCmd(String deviceId);
 }

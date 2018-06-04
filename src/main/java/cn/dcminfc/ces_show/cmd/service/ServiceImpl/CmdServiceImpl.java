@@ -75,30 +75,30 @@ public class CmdServiceImpl implements CmdService{
     }
 
     @Override
-    public ReturnData getCmd(String deviceId) {
+    public String getCmd(String deviceId) {
         System.out.println(deviceId);
         Result result;
         //1、检查数据状态
         result = checkParms(deviceId);
         if (!Constant.RESULT_00.getCode().equals(result.getCode())) {
-            return DealReturnData.result(result);
+            return "";
         }
 
         //2、检查设备是否被注册
         if (!deviceService.isHas(deviceId)) {
-            return DealReturnData.result(Constant.RESULT_E0301);
+            return "";
         }
 
         //3、获取命令
         result = queryCmd(deviceId);
         if (!Constant.RESULT_00.getCode().equals(result.getCode())){
-            return DealReturnData.result(result);
+            return "";
         }
 
         //4、将命令返回给设备
         ReturnData returnData = DealReturnData.result(Constant.RESULT_00);
         returnData.setContent(this.cmdDomain);
-        return returnData;
+        return this.cmdDomain.getCmd();
     }
 
     private Result queryCmd(String deviceId) {
@@ -117,8 +117,8 @@ public class CmdServiceImpl implements CmdService{
             } else {
                 this.cmdDomain = cmdDomainToDo;
                 cmdMapper.changeALLflag(Constant.DEVICE_DEFAULT, Constant.CMD_FLAG_DEALED);
-                cmdDomainToDo.setFlag(Constant.CMD_FLAG_WAIT);
-                cmdMapper.updateByPrimaryKey(cmdDomainToDo);
+//                cmdDomainToDo.setFlag(Constant.CMD_FLAG_WAIT);
+//                cmdMapper.updateByPrimaryKey(cmdDomainToDo);
                 return Constant.RESULT_00;
             }
 
