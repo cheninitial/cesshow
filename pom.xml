@@ -4,18 +4,25 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.dcminfc</groupId>
-	<artifactId>ces</artifactId>
+	<artifactId>ces_show</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ces</name>
-	<description>for ces of UAES</description>
+	<name>ces_show</name>
+	<description>uaes for CES Show</description>
 
 	<parent>
 		<groupId>com.hand.hap.cloud</groupId>
 		<artifactId>hap-cloud-parent</artifactId>
 		<version>1.0.0-Release</version>
 	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
 	<repositories>
 		<repository>
 			<id>hand-snapshot-repository</id>
@@ -37,18 +44,12 @@
 		</repository>
 	</repositories>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
-
 	<dependencies>
 		<!-- json lib-->
 		<dependency>
 			<groupId>uaes-iot-rent</groupId>
 			<artifactId>uaes-iot-util</artifactId>
-			<version>1.1.40-SNAPSHOT</version>
+			<version>1.1.44-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
@@ -87,7 +88,6 @@
 			<artifactId>hap-feign-replay-starter</artifactId>
 			<version>1.0.0-Release</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>

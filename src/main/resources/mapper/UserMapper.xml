@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.dcminfc.ces_show.user.mapper.UserMapper">
+    <update id="changeALLflag" >
+        UPDATE c_user SET FLAG = #{flag}
+    </update>
+
+    <select id="selectOneByOpenID" resultType="cn.dcminfc.ces_show.user.domain.UserDomain">
+        SELECT * FROM c_user WHERE OPEN_ID = #{openId} Limit 1
+    </select>
+</mapper>
